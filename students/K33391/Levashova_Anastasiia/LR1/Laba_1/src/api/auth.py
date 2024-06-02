@@ -44,7 +44,6 @@ async def get_user_tasks(
 ) -> List[Task]:
     if not current_user:
         raise HTTPException(status_code=404, detail="User not found")
-    print(f'get_user_tasks = {current_user}')
     tasks_query = select(Task).where(Task.user_id == current_user.id)
     tasks = session.exec(tasks_query).all()
     return tasks
