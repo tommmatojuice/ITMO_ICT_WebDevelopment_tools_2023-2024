@@ -1,8 +1,11 @@
 from sqlmodel import SQLModel, Session, create_engine
+import os
+from dotenv import load_dotenv
 
-db_url = 'postgresql://postgres:12345@localhost:5433/tasks_db'
+load_dotenv()
+
+db_url = os.getenv('DB_ADMIN')
 engine = create_engine(db_url, echo=True)
-
 
 def init_db():
     SQLModel.metadata.create_all(engine)

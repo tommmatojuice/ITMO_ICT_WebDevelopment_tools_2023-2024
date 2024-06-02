@@ -53,14 +53,3 @@ def update_user(user_id: int, user: UserDefault, session=Depends(get_session)) -
     session.commit()
     session.refresh(db_users)
     return db_users
-
-@router.get("/tasks", response_model=List[Task])
-async def get_user_tasks(
-    current_user: User = Depends(get_current_user),
-    session = Depends(get_session)
-) -> List[Task]:
-    if not current_user:
-        raise HTTPException(status_code=404, detail="User not found")
-    tasks_query = select(Task).where(Task.user_id == current_user.id)
-    tasks = session.exec(tasks_query).all()
-    return tasks
