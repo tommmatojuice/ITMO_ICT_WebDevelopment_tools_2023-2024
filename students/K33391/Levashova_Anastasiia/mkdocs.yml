@@ -26,3 +26,10 @@ nav:
       - laba_2/page7.md
       - laba_2/page8.md
       - laba_2/page9.md
+  - "Лабораторная работа 3":
+      - laba_3/main.md
+      - "Код":
+          - laba_3/page1.md
+          - laba_3/page2.md
+          - laba_3/page3.md
+          - laba_3/page4.md
